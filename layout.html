@@ -29,6 +29,38 @@
         <p>&copy; Copyright - 2019</p>
     </footer>
     <script>
+        var links = document.querySelectorAll("a");
+        links.forEach(element => {
+            element.addEventListener("click", e => {
+                enlace(e);    
+            });
+        });
+        
+        // links[0].addEventListener("click", e => {
+        //     enlace(e);    
+        // });
+        // links[1].addEventListener("click", e => {
+        //     enlace(e);    
+        // });
+        // links[2].addEventListener("click", e => {
+        //     enlace(e);    
+        // });
+
+        function enlace(e) {
+            e.preventDefault();
+            console.log()
+            var xhr = new XMLHttpRequest;
+            xhr.addEventListener("load", () => {
+                if (xhr.status == 200) {
+                    console.log(xhr.response);
+                    document.querySelector("main").innerHTML = xhr.response;
+                }
+            })
+            xhr.open("get", e.target.href);
+            xhr.send();   
+        }
+        
+        
     /*
     
         1- Agarrar todos los links
