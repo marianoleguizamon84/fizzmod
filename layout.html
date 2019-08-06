@@ -36,40 +36,24 @@
             });
         });
         
-        // links[0].addEventListener("click", e => {
-        //     enlace(e);    
-        // });
-        // links[1].addEventListener("click", e => {
-        //     enlace(e);    
-        // });
-        // links[2].addEventListener("click", e => {
-        //     enlace(e);    
-        // });
-
         function enlace(e) {
             e.preventDefault();
-            console.log()
-            var xhr = new XMLHttpRequest;
-            xhr.addEventListener("load", () => {
-                if (xhr.status == 200) {
-                    console.log(xhr.response);
-                    document.querySelector("main").innerHTML = xhr.response;
-                }
-            })
-            xhr.open("get", e.target.href);
-            xhr.send();   
+            // console.log()
+            // var xhr = new XMLHttpRequest;
+            // xhr.addEventListener("load", () => {
+            //     if (xhr.status == 200) {
+            //         console.log(xhr.response);
+            //         document.querySelector("main").innerHTML = xhr.response;
+            //     }
+            // })
+            // xhr.open("get", e.target.href);
+            // xhr.send();
+            fetch(e.target.href)
+            .then(respuesta=>respuesta.text())
+            .then(respuesta=>document.querySelector("main").innerHTML = respuesta)
+            .catch(console.error)
         }
         
-        
-    /*
-    
-        1- Agarrar todos los links
-        2- recorrer todos los links y asignarles un evento de click. El callback de todos los links tiene que EL MISMO
-        3 - Cancelar el default
-        4 - Iniciar un pedido XHR al href del link que corresponda
-        5 - Con la respuesta , modificar el contenido del <main> 
-    
-    */
     </script>
 </body>
 </html>
