@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from "react-redux"
 
-export default class Header extends Component {
+class Header extends Component {
     render() {
         let {links} = this.props
         return (
@@ -15,3 +16,7 @@ export default class Header extends Component {
         )
     }
 }
+
+export default connect(store=>({
+    links: store.links
+}))(Header)

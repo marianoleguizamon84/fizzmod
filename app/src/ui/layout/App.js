@@ -10,7 +10,6 @@ class App extends Component {
     constructor(){
         super()
         this.state = {
-            links : [ "perfil" , "portfolio" , "contacto" ],
             mostrar : false,
             usuario : "",
             usuarios : []
@@ -40,7 +39,7 @@ class App extends Component {
         let {links,contador,mostrar,usuario,usuarios} = this.state
         return (
             <Fragment>
-                <Header links={links}/>
+                <Header/>
                 <Contador/>
                 {mostrar ? 
                     <Formulario 
